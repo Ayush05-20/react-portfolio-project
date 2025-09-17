@@ -1,0 +1,369 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-card: hsl(var(--card));
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+  --animate-meteor: meteor 5s linear infinite;
+  --animate-fall: fall var(--raindrop-duration) linear infinite;
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+  --animate-golden-pulse: golden-pulse 4s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes pulse-subtle {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes meteor {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes blink{
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Enhanced glow for light mode */
+  @keyframes glow {
+    0%, 100% { 
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.6); 
+    }
+    50% { 
+      text-shadow: 0 0 20px rgba(56, 189, 248, 1), 0 0 30px rgba(56, 189, 248, 0.8); 
+    }
+  }
+  
+  /* New golden glow for light mode */
+  @keyframes golden-glow {
+    0%, 100% { 
+      text-shadow: 0 0 15px rgba(251, 191, 36, 0.8), 0 0 30px rgba(251, 191, 36, 0.6); 
+    }
+    50% { 
+      text-shadow: 0 0 25px rgba(251, 191, 36, 1), 0 0 40px rgba(251, 191, 36, 0.8), 0 0 55px rgba(251, 191, 36, 0.4); 
+    }
+  }
+
+  /* Shimmer effect for light mode elements */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* Golden pulse for light mode accents */
+  @keyframes golden-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.3), 0 0 40px rgba(251, 191, 36, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(251, 191, 36, 0.5), 0 0 60px rgba(251, 191, 36, 0.2);
+    }
+  }
+
+ @keyframes fall {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(200vh);
+      opacity: 0;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    /* Enhanced light mode colors */
+    --background: 200 100% 97%; /* Bright sky blue tint */
+    --foreground: 220 90% 15%; /* Deep navy for contrast */
+
+    --card: 0 0% 100%; /* Pure white cards */
+
+    --primary: 195 100% 50%; /* Vibrant cyan */
+    --primary-foreground: 220 90% 15%;
+
+    --border: 200 50% 85%; /* Soft blue border */
+    
+    /* Light mode specific accents */
+    --accent-golden: 45 100% 60%;
+    --accent-orange: 25 100% 55%;
+    --accent-pink: 320 100% 70%;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 213 31% 91%;
+
+    --card: 222 47% 8%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 213 31% 91%;
+
+    --border: 217 33% 20%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    
+    /* Enhanced light mode background */
+    &:not(.dark) {
+      background: linear-gradient(135deg, 
+        hsl(200 100% 97%) 0%, 
+        hsl(180 100% 98%) 25%,
+        hsl(200 100% 96%) 50%,
+        hsl(220 100% 98%) 75%,
+        hsl(200 100% 97%) 100%
+      );
+      background-attachment: fixed;
+    }
+  }
+
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@utility text-glow {
+  @apply relative;
+  text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+}
+
+@utility card-hover {
+  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+}
+
+@utility gradient-border {
+  @apply relative rounded-md;
+  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+  background-clip: padding-box;
+  border: 1px solid transparent;
+}
+
+@utility cosmic-button {
+  @apply px-6 py-2 rounded-full bg-gradient-to-r from-sky-400 to-blue-600 text-white font-medium
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(59,130,246,0.5)]
+         hover:scale-115 active:scale-115;
+}
+
+/* Enhanced cosmic button for light mode */
+@utility cosmic-button-light {
+  @apply px-6 py-2 rounded-full font-medium transition-all duration-300 hover:scale-115 active:scale-115;
+  background: linear-gradient(135deg, #f59e0b, #f97316, #ec4899);
+  color: white;
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3), 0 0 20px rgba(249, 115, 22, 0.2);
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4), 0 0 30px rgba(249, 115, 22, 0.3);
+    background: linear-gradient(135deg, #f97316, #ec4899, #8b5cf6);
+  }
+}
+
+@utility star {
+  @apply absolute rounded-full;
+  
+  /* Different star colors for light mode */
+  .dark & {
+    @apply bg-white;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+  }
+  
+  &:not(.dark &) {
+    background: linear-gradient(45deg, #fbbf24, #f59e0b, #f97316);
+    box-shadow: 0 0 15px 3px rgba(251, 191, 36, 0.6), 0 0 25px 5px rgba(251, 191, 36, 0.3);
+  }
+}
+
+@utility meteor {
+  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+}
+
+@utility animate-blink {
+  animation: blink 2s infinite;
+}
+
+/* Enhanced light mode star blinking */
+@utility animate-golden-blink {
+  animation: golden-pulse 3s infinite;
+}
+
+@layer utilities {
+  .text-glow {
+    @apply relative;
+    
+    /* Dark mode glow */
+    .dark & {
+      color: #38bdf8;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.8),
+                   0 0 20px rgba(56, 189, 248, 0.6),
+                   0 0 30px rgba(56, 189, 248, 0.4);
+      animation: glow 3s infinite;
+    }
+    
+    /* Light mode glow - golden/orange theme */
+    &:not(.dark &) {
+      color: #f97316;
+      text-shadow: 0 0 15px rgba(249, 115, 22, 0.8),
+                   0 0 25px rgba(249, 115, 22, 0.6),
+                   0 0 35px rgba(249, 115, 22, 0.4);
+      animation: golden-glow 3s infinite;
+    }
+  }
+  
+  /* Enhanced card styling for light mode */
+  .cosmic-card {
+    .dark & {
+      @apply bg-card border-border;
+    }
+    
+    &:not(.dark &) {
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.9), 
+        rgba(255, 255, 255, 0.7)
+      );
+      border: 2px solid rgba(251, 191, 36, 0.3);
+      box-shadow: 0 8px 32px rgba(251, 191, 36, 0.1),
+                  0 4px 16px rgba(249, 115, 22, 0.05),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    
+    &:hover:not(.dark &) {
+      border-color: rgba(251, 191, 36, 0.5);
+      box-shadow: 0 12px 40px rgba(251, 191, 36, 0.15),
+                  0 6px 20px rgba(249, 115, 22, 0.1),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
+    }
+  }
+  
+  /* Shimmer effect for light mode elements */
+  .shimmer-light {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(251, 191, 36, 0.4),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+  }
+}
+
+@utility raindrop {
+  @apply absolute;
+  width: var(--raindrop-size);
+  height: calc(var(--raindrop-size) * 30);
+  left: var(--raindrop-x);
+  top: var(--raindrop-y);
+  animation: var(--animate-fall);
+  animation-delay: var(--raindrop-delay);
+  
+  /* Different raindrop colors for themes */
+  .dark & {
+    background: linear-gradient(
+      to bottom, 
+      rgba(255, 255, 255, 0.4), 
+      rgba(255, 255, 255, 0)
+    );
+  }
+  
+  &:not(.dark &) {
+    background: linear-gradient(
+      to bottom, 
+      rgba(251, 191, 36, 0.6), 
+      rgba(249, 115, 22, 0.3),
+      rgba(251, 191, 36, 0)
+    );
+  }
+  
+  filter: blur(0.5px);
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
