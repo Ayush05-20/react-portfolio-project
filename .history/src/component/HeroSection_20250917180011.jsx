@@ -13,7 +13,7 @@ const HeroSection = () => {
         ));
     };
   return (
-    <section id='hero' className='relative min-h-screen flex flex-col justify-center items-center px-4'>
+    <section id='hero' className='relative min-h-screen flex flex-col justify-center items-center px-4 color-white'>
         <div className='text-center container max-w-4xl mx-auto z-10'>
             <div className='space-y-6'>
                 <div className='flex justify-center mb-8'>

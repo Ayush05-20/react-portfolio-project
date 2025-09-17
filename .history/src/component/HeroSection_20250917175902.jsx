@@ -30,7 +30,7 @@ const HeroSection = () => {
                     </div>
                 </div>
                 <h1 className='text-4xl md:text-6xl font-bold tracking-tight'>
-                    <span className='opacity:0 animate-fade-in '>{renderLetters("Hi, I'm")}</span>
+                    <span className='opacity:0 animate-fade-in color:white'>{renderLetters("Hi, I'm")}</span>
                     <span className='opacity:0 animate-fade-in-delay-1 text-glow'>{renderLetters("Ayush")}</span>
                     <span className='ml-2 opacity:0 animate-fade-in-delay-2 '>{renderLetters("Shrestha", " bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent")}</span>
                 </h1>
