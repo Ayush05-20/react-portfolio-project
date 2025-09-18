@@ -8,9 +8,7 @@ const Footer = () => {
         <p>
             &copy; {new Date().getFullYear()} All rights reserved.
         </p>
-        
-    </footer>
-    </section>
+    </footer></section>
   )
 }
 

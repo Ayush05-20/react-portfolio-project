@@ -7,7 +7,7 @@ const Contacts = () => {
     
   return (
     <section className='py-24 px-4 relative' id="contact">
-        
+        <div className='absolute -bottom-16 -right-16 w-56 h-56 bg-blue-600/20 rounded-full mix-blend-screen filter blur-3xl opacity-50 animate-slow-float' />
         <div className='container mx-auto max-w-5xl'>
             <h2 className='text-3xl md:text-4xl font-bold text-center'>
                 <span className='text-glow'>Get I</span>

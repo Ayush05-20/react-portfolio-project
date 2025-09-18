@@ -2,15 +2,13 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <section>
+    <sec
     <footer>
       
         <p>
             &copy; {new Date().getFullYear()} All rights reserved.
         </p>
-        
     </footer>
-    </section>
   )
 }
 

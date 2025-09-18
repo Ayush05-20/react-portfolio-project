@@ -5,8 +5,8 @@ const AboutMe = () => {
   return (
     <section id='about' className='py-20 px-3 relative overflow-hidden'>
         {/* Decorative, glowing orbs that float and pulse subtly */}
-    
-
+        
+       
         <div className='container max-w-6xl mx-auto relative z-10'>
             <h2 className='text-3xl md:text-4xl font-bold text-center mb-16 animate-fade-in'>
                 <span className='text-glow'>About</span><span className='bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent ' >Me</span>
