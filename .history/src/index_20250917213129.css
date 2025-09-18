@@ -240,7 +240,7 @@
 }
 /* Slow floating for light mode stars */
 @utility animate-slow-float {
-  animation: slow-float 40s ease-in-out infinite;
+  animation: slow-float 0s ease-in-out infinite;
 }
 @utility card-hover {
   @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
