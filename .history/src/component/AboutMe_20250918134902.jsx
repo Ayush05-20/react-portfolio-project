@@ -18,7 +18,7 @@ const AboutMe = () => {
                 {/* Text and Contact Button Section */}
                 <div className='lg:w-1/2 space-y-6 text-center lg:text-left animate-fade-in-delay-1'>
                     <h3 className='text-2xl font-semibold'>
-                         Learner | Developer | Problem Solver
+                         Lean
                     </h3>
                     <p className='text-muted-foreground max-w-lg lg:max-w-none mx-auto leading-relaxed'>
                         I am a dedicated and passionate student with a strong interest in web development, artificial intelligence, and machine learning. I love exploring new technologies and continuously learning to enhance my skills. My goal is to leverage my knowledge to create innovative solutions that can make a positive impact in the tech world.
